@@ -112,6 +112,39 @@ def bestFirstSearch(start,target):
 
     return None 
 
+
+
+# A* algorithrm:
+def a_start(start,target):
+    """A* algorithrm"""
+    if not start or not target:
+        return None
+    
+    #f_cost,node,path,g_cost
+    # f(n)  = h(n) + g(n)
+    queue = [(start.huristics,start,[start.val],0)]
+    visited = set()
+    costs = {start:0}
+    
+    while queue:
+        f_cost,node,path,g_cost = heapq.heappop(queue)
+        
+        if node==target:
+            return path,g_cost
+        
+        if node in visited:
+            continue
+        
+        visited.add(node)
+
+        for neighbour,weight in node.neighbours:
+            new_g_cost = g_cost + weight
+            new_path = path + [neighbour.val]
+            new_f_cost = new_g_cost + neighbour.huristics 
+            if neighbour not in costs or new_g_cost<cost[neighbour]:
+                costs[neighbour] = new_g_cost
+                heapq.heappush(queue,(new_f_cost,neighbour,new_path,new_g_cost))
+    return None 
 #<---------------------Test all the algorithrm--------------------->
 """ 
 Enter node and huristics: (write done after finished)
@@ -151,3 +184,11 @@ if start_node and target_node:
         print("Target is not found")
 
 
+if start_node and target_node:
+    path = a_start(start_node,target_node)
+    if path:
+        print("A* Search-> ",path)
+    else:
+        print("target is not found")
+        
+    
