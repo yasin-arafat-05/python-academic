@@ -1,3 +1,5 @@
 venv 
 udemycourse/dataset
 DataAnalysis
+.env
+uv.lock
