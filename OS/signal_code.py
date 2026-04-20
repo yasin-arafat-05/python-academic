@@ -1,3 +1,9 @@
+""" 
+# Find the process ID
+ps aux | grep signal_test.py
+# Send a SIGTERM (15) or SIGKILL (9)
+kill -9 <PID_NUMBER>
+"""
 import signal
 import time 
 
