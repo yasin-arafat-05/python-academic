@@ -9,6 +9,8 @@ dependencies = [
     "numpy>=2.4.4",
     "pandas>=3.0.2",
     "pygame>=2.6.1",
+    "scipy",
     "seaborn>=0.13.2",
     "shapely>=2.1.2",
+    "statsmodels>=0.14.6",
 ]
